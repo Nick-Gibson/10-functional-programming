@@ -1,7 +1,7 @@
 'use strict';
 var app = app || {};
 
-// TODO: Wrap the contents of this file, except for the preceding 'use strict' and 'var app...' declararions, in an IIFE.
+// DONE?: Wrap the contents of this file, except for the preceding 'use strict' and 'var app...' declararions, in an IIFE.
 // Give the IIFE a parameter called 'module'.
 // At the very end of the code, but still inside the IIFE, attach the 'Article' object to 'module'.
 // Where the IIFE is invoked, pass in the global 'app' object that is defined above.
@@ -48,13 +48,14 @@ var app = app || {};
 
   // TODO: Chain together a .map() and a .reduce() call to get a rough count of all words in all articles. Yes, you have to do it this way.
   Article.numWordsAll = () => {
-    return Article.all.map().reduce()
+    return Article.all
   };
-
+  console.log(Article.numWordsAll)
   // TODO: Chain together a .map() and a .reduce() call to produce an array of unique author names. You will probably need to use the optional accumulator argument in your reduce call.
   Article.allAuthors = () => {
-    return Article.all.map().reduce();
+    return Article.all.reduce((prev, curr) => prev + curr).map();
   };
+
 
   Article.numWordsByAuthor = () => {
     return Article.allAuthors().map(author => {
